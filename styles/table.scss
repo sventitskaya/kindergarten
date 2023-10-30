@@ -1,0 +1,36 @@
+.page-table-container {
+  display: block;
+  padding-bottom: 5px;
+}
+.page-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.page-table th, .page-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.page-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.page-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.page-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.page-table button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+}

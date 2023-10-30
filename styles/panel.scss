@@ -1,0 +1,32 @@
+.list-container {
+  border: 1px solid #ccc;
+  margin: 10px auto;
+  padding: 10px;
+  cursor: pointer;
+  width: 320px;
+}
+
+.list {
+  width: 300px;
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+}
+
+.list li h4 {
+  margin: 0;
+}
+
+.list li p {
+  margin: 0;
+  color: #777;
+}
