@@ -29,6 +29,31 @@ editTeachers.forEach(button => {
     });
 });
 
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const deleteTeachers = document.querySelectorAll('.delete-teacher');
+deleteTeachers.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const teacherId = event.target.getAttribute('data-teacher-id');
+        const a = document.createElement('a');
+        a.id = 'remove-teacher';
+        a.href = `services/process-delete-teacher.php?teacher_id=${teacherId}`;
+        a.click();
+    });
+});
+
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const confirmDeleteTeachers = document.querySelectorAll('.confirm-delete-teacher');
+confirmDeleteTeachers.forEach(button => {
+    button.addEventListener('click', () => {
+        // Откройте модальное окно подтверждения удаления
+        document.getElementById('deleteTeacherModal').style.display = 'flex';
+
+        document.getElementById('cancelDeleteTeacherButton').addEventListener('click', () => {
+            document.getElementById('deleteTeacherModal').style.display = 'none';
+        })
+    });
+});
+
 document.getElementById('add-teacher').addEventListener('click', () => {
     // Открывает диалоговое окно
     document.getElementById('teacherModal').style.display = 'flex';
@@ -53,8 +78,16 @@ document.getElementById('closeTeacherModal').addEventListener('click', () => {
     document.getElementById('teacherModal').style.display = 'none';
 });
 
+document.getElementById('closeDeleteTeacherModal').addEventListener('click', () => {
+    document.getElementById('deleteTeacherModal').style.display = 'none';
+});
+
 window.addEventListener('click', (event) => {
     if (event.target === document.getElementById('teacherModal')) {
         document.getElementById('teacherModal').style.display = 'none';
+    }
+
+    if (event.target === document.getElementById('deleteTeacherModal')) {
+        document.getElementById('deleteTeacherModal').style.display = 'none';
     }
 });

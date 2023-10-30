@@ -29,6 +29,31 @@ editEducators.forEach(button => {
     });
 });
 
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const deleteEducators = document.querySelectorAll('.delete-educator');
+deleteEducators.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const educatorId = event.target.getAttribute('data-educator-id');
+        const a = document.createElement('a');
+        a.id = 'remove-educator';
+        a.href = `services/process-delete-educator.php?educator_id=${educatorId}`;
+        a.click();
+    });
+});
+
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const confirmDeleteEducators = document.querySelectorAll('.confirm-delete-educator');
+confirmDeleteEducators.forEach(button => {
+    button.addEventListener('click', () => {
+        // Откройте модальное окно подтверждения удаления
+        document.getElementById('deleteEducatorModal').style.display = 'flex';
+
+        document.getElementById('cancelDeleteEducatorButton').addEventListener('click', () => {
+            document.getElementById('deleteEducatorModal').style.display = 'none';
+        })
+    });
+});
+
 document.getElementById('add-educator').addEventListener('click', () => {
     // Открывает диалоговое окно
     document.getElementById('educatorModal').style.display = 'flex';
@@ -53,8 +78,16 @@ document.getElementById('closeEducatorModal').addEventListener('click', () => {
     document.getElementById('educatorModal').style.display = 'none';
 });
 
+document.getElementById('closeDeleteEducatorModal').addEventListener('click', () => {
+    document.getElementById('deleteEducatorModal').style.display = 'none';
+});
+
 window.addEventListener('click', (event) => {
     if (event.target === document.getElementById('educatorModal')) {
         document.getElementById('educatorModal').style.display = 'none';
+    }
+
+    if (event.target === document.getElementById('deleteEducatorModal')) {
+        document.getElementById('deleteEducatorModal').style.display = 'none';
     }
 });

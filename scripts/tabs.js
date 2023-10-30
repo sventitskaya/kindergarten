@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const mainTabs = document.querySelectorAll(".main-tab");
     const mainTabContents = document.querySelectorAll(".main-tab-content .tab-panel");
     const tabs = document.querySelectorAll(".tab");
@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    mainTabs.forEach(function (mainTab) {
-        mainTab.addEventListener("click", function () {
+    mainTabs.forEach(mainTab => {
+        mainTab.addEventListener("click", () => {
             const tabId = mainTab.getAttribute("data-tab");
 
-            mainTabContents.forEach(function (content) {
+            mainTabContents.forEach(content => {
                 content.classList.remove("active");
             });
 
@@ -45,15 +45,25 @@ document.addEventListener("DOMContentLoaded", function () {
             tabs.forEach(t => {
                 t.classList.remove('active');
             });
+
+            if (tabs && tabs.length > 0) {
+                const firstTab = tabs[0];
+                const firstTabContent = document.querySelector(`.group-content[data-group-id="${firstTab.getAttribute("data-group-id")}"][data-tab="${firstTab.getAttribute("data-tab")}"]`);
+
+                if (firstTab && firstTabContent) {
+                    firstTab.classList.add('active');
+                    firstTabContent.classList.add('active');
+                }
+            }
         });
     });
 
-    tabs.forEach(function (tab) {
-        tab.addEventListener("click", function () {
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
             const groupId = tab.getAttribute("data-group-id");
             const tabId = tab.getAttribute("data-tab");
 
-            tabContents.forEach(function (content) {
+            tabContents.forEach(content => {
                 content.classList.remove("active");
             });
 

@@ -20,9 +20,8 @@ editChildren.forEach(button => {
 
         // Открывает диалоговое окно
         document.getElementById('childModal').style.display = 'flex';
-        document.getElementById('childGroup').removeAttribute('hidden');
         document.getElementById('childGender').setAttribute('hidden', 'true');
-        document.getElementById('childGroupId').setAttribute('required', 'true');
+        document.getElementById('childGroupId').removeAttribute('required');
         document.getElementById('childModalTitle').innerHTML = 'Редактировать ребенка';
         document.getElementById('childForm').action = 'services/process-edit-child.php';
 

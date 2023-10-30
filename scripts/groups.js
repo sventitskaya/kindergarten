@@ -20,6 +20,31 @@ editGroups.forEach(button => {
     });
 });
 
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const deleteGroups = document.querySelectorAll('.delete-group');
+deleteGroups.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const groupId = event.target.getAttribute('data-group-id');
+        const a = document.createElement('a');
+        a.id = 'remove-group';
+        a.href = `services/process-delete-group.php?group_id=${groupId}`;
+        a.click();
+    });
+});
+
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const confirmDeleteGroups = document.querySelectorAll('.confirm-delete-group');
+confirmDeleteGroups.forEach(button => {
+    button.addEventListener('click', () => {
+        // Откройте модальное окно подтверждения удаления
+        document.getElementById('deleteGroupModal').style.display = 'flex';
+
+        document.getElementById('cancelDeleteGroupButton').addEventListener('click', () => {
+            document.getElementById('deleteGroupModal').style.display = 'none';
+        })
+    });
+});
+
 document.getElementById('add-group').addEventListener('click', () => {
     // Открывает диалоговое окно
     document.getElementById('groupModal').style.display = 'flex';
@@ -37,8 +62,16 @@ document.getElementById('closeGroupModal').addEventListener('click', () => {
     document.getElementById('groupModal').style.display = 'none';
 });
 
+document.getElementById('closeDeleteGroupModal').addEventListener('click',  () => {
+    document.getElementById('deleteGroupModal').style.display = 'none';
+});
+
 window.addEventListener('click', (event) => {
     if (event.target === document.getElementById('groupModal')) {
         document.getElementById('groupModal').style.display = 'none';
+    }
+
+    if (event.target === document.getElementById('deleteGroupModal')) {
+        document.getElementById('deleteGroupModal').style.display = 'none';
     }
 });

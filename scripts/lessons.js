@@ -29,6 +29,18 @@ editLessons.forEach(button => {
     });
 });
 
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const deleteLessons = document.querySelectorAll('.delete-lesson');
+deleteLessons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const lessonId = event.target.getAttribute('data-lesson-id');
+        const a = document.createElement('a');
+        a.id = 'remove-lesson';
+        a.href = `services/process-delete-lesson.php?lesson_id=${lessonId}`;
+        a.click();
+    });
+});
+
 document.getElementById('add-lesson').addEventListener('click', () => {
     // Открывает диалоговое окно
     document.getElementById('lessonModal').style.display = 'flex';
