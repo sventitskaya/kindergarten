@@ -11,18 +11,7 @@
             </select>
             <br>
 
-            <label for="children[]">Выберите детей:</label>
-            <div class="custom-select">
-                <div class="options">
-                    <?php if (isset($freeChildren)) foreach ($freeChildren as $child) : ?>
-                        <label>
-                            <input type="checkbox" name="children[]" value="<?php echo $child['child_id']; ?>">
-                            <?php echo $child['full_name']; ?>
-                        </label>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-
+            <input type="hidden" name="childId" id="childId">
             <input type="submit" value="Сохранить изменения">
         </form>
     </div>

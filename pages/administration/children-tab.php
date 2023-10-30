@@ -37,10 +37,25 @@
                             <td><?php echo $child['gender']; ?></td>
                             <td><?php echo $child['group_name']; ?></td>
                             <td>
-                                <button class="remove-group-children"
-                                        data-child-id="<?php echo $child['child_id']; ?>">
-                                    <?php echo isset($child['group_id']) ? 'Отвязать' : 'Привязать'; ?>
-                                </button>
+                                <div class="button-row">
+                                    <button class="remove-group-children"
+                                            data-child-id="<?php echo $child['child_id']; ?>"
+                                            <?php if (!isset($child['group_id'])): ?>hidden<?php endif; ?>>
+                                        Отвязать
+                                    </button>
+
+                                    <button class="add-children-to-group"
+                                            data-child-id="<?php echo $child['child_id']; ?>"
+                                            <?php if (isset($child['group_id'])): ?>hidden<?php endif; ?>>
+                                        Привязать
+                                    </button>
+
+                                    <button class="delete-child"
+                                            data-child-id="<?php echo $child['child_id']; ?>"
+                                            <?php if (isset($child['group_id'])): ?>hidden<?php endif; ?>>
+                                        Удалить
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -51,7 +66,6 @@
             echo '<p>В данной группе нет детей.</p>';
         } ?>
         <?php include 'children-modal.php'; ?>
-<!--        <a id="add-children-to-group">Добавить Детей</a>-->
         <script src="../../scripts/children-groups.js" type="text/javascript"></script>
     </div>
 </div>

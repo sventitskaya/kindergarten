@@ -34,7 +34,16 @@
                                         $stmt->execute();
                                         $resultChildren = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                                        if (isset($resultChildren) && $resultChildren['children_count'] > 0) {
+                                        $getLessonsCountQuery = "SELECT COUNT(*) as lessons_count
+                                                                FROM LessonGroupRelation lgr
+                                                                WHERE lgr.group_id = :groupId";
+                                        $stmt = $conn->prepare($getLessonsCountQuery);
+                                        $stmt->bindParam(':groupId', $group['group_id']);
+                                        $stmt->execute();
+                                        $resultLessons = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                        if ((isset($resultChildren) && $resultChildren['children_count'] > 0) ||
+                                            (isset($resultLessons)) && $resultLessons['lessons_count'] > 0) {
                                             $deleteClass = 'confirm-delete-group';
                                         }
                                     }

@@ -10,18 +10,32 @@ removeGroupChildren.forEach(button => {
     });
 });
 
-document.getElementById('add-children-to-group').addEventListener('click', () => {
-    // Открывает диалоговое окно
-    document.getElementById('childrenGroupModal').style.display = 'flex';
+// Найти все кнопки "Удалить" и добавить для каждой обработчик события на нажатие
+const deleteChildren = document.querySelectorAll('.delete-child');
+deleteChildren.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const childId = event.target.getAttribute('data-child-id');
+        console.log(childId);
+        const a = document.createElement('a');
+        a.id = 'remove-child';
+        a.href = `services/process-delete-child.php?child_id=${childId}`;
+        a.click();
+    });
+});
 
-    document.getElementById('childrenGroupModalTitle').innerHTML = 'Добавить детей в группу';
-    document.getElementById('childrenGroupForm').action = '../administration/services/process-assign-group.php';
+const addGroupChildren = document.querySelectorAll('.add-children-to-group');
+addGroupChildren.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const childId = event.target.getAttribute('data-child-id');
+        // Открывает диалоговое окно
+        document.getElementById('childrenGroupModal').style.display = 'flex';
 
-    const checkboxes = document.querySelectorAll('.options input[type="checkbox"]');
-    for (const checkbox of checkboxes) {
-        checkbox.checked = false;
-    }
-    document.getElementById('childrenGroupName').value = null;
+        document.getElementById('childrenGroupModalTitle').innerHTML = 'Добавить ребенка в группу';
+        document.getElementById('childrenGroupForm').action = '../administration/services/process-assign-group.php';
+
+        document.getElementById('childId').value = childId;
+        document.getElementById('childrenGroupName').value = null;
+    });
 });
 
 // Закрывает диалоговое окно при клике на крестик или вне диалогового окна

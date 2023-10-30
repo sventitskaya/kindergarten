@@ -2,7 +2,7 @@
     <div class="modal-content">
         <span class="close" id="closeDeleteGroupModal">&times;</span>
         <h2>Подтверждение удаления</h2>
-        <p>Вы не можете удалить группу. Переназначьте детей на другие группы.</p>
+        <p>Вы не можете удалить группу. Переназначьте детей и уроки на другие группы.</p>
         <div>
             <button id="cancelDeleteGroupButton">Вернуться</button>
         </div>
