@@ -64,7 +64,5 @@ if (isset($conn) && isset($isAdmin)) {
     } catch (PDOException $e) {
         echo "Ошибка при выполнении запроса: " . $e->getMessage();
     }
-} else {
-    echo "123";
 }
 ?>
