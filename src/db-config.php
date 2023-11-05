@@ -1,9 +1,6 @@
 <?php
-$db_host = 'gerusjmw.beget.tech';
-$db_name = 'gerusjmw_kinder';
-$db_user = 'gerusjmw_kinder';
-$db_password = '1234Root';
-$db_host = 'gerusjmw.beget.tech';
+//$db_host = 'gerusjmw.beget.tech'; // For local run with remote db use this
+$db_host = 'localhost';
 $db_name = 'gerusjmw_kinder';
 $db_user = 'gerusjmw_kinder';
 $db_password = '1234Root';
