@@ -3,9 +3,10 @@ include 'login-service.php';
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <title>Вход</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../styles/main.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/login.scss">
 </head>

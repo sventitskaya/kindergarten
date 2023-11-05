@@ -3,9 +3,10 @@ include 'educator-service.php';
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <title>Дашборд воспитателя</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../styles/main.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/page.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/modal.scss">
