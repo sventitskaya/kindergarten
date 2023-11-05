@@ -1,6 +1,6 @@
 <?php
 include('../../../src/auth-guard.php');
-if (isset($conn) && isset($isAdmin)) {
+if (isset($conn) && isset($isRole)) {
     try {
         // Взятие данных о существующем ребенке на основе child_id
         if (isset($user_id) && isset($_POST['childId'])) {
@@ -31,7 +31,7 @@ if (isset($conn) && isset($isAdmin)) {
                 $birth_date = $_POST['childBirthDate'];
 
                 // Проверка роли пользователя
-                if ($isAdmin) {
+                if (isset($isAdmin) && $isAdmin) {
                     // Поле выбора группы, доступное только администратору
                     $child_group_id = $_POST['childGroupId'];
                 } else {

@@ -5,17 +5,18 @@ include 'admin-service.php';
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Дашборд заведующей</title>
+    <title>Статистика</title>
     <link rel="stylesheet" type="text/css" href="../../styles/main.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/page.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/modal.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/table.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/select.scss">
     <link rel="stylesheet" type="text/css" href="../../styles/tab.scss">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div class="header">
-    <h2>Дашборд заведующей<br/><?php if (isset($user_full_name)) echo $user_full_name ?></h2>
+    <h2>Статистика<br/><?php if (isset($user_full_name)) echo $user_full_name ?></h2>
 
     <div class="top-panel">
         <?php if (isset($user_full_name)) : ?>
@@ -36,23 +37,10 @@ include 'admin-service.php';
 
     <div class="content">
         <div class="tab-container">
-            <ul class="tab-list">
-                <li class="main-tab" data-tab="approvals">Запросы на регистрацию</li>
-                <li class="main-tab" data-tab="educators">Воспитатели</li>
-                <li class="main-tab" data-tab="teachers">Учителя</li>
-                <li class="main-tab" data-tab="groups">Группы</li>
-                <li class="main-tab" data-tab="children">Воспитанники</li>
-                <li class="main-tab" data-tab="parents">Родители</li>
-            </ul>
+            <h3>Количество детей по группам</h3>
 
-            <div class="main-tab-content">
-                <?php include 'registration-requests-tab.php'; ?>
-                <?php include 'educators-tab.php'; ?>
-                <?php include 'teachers-tab.php'; ?>
-                <?php include 'groups-tab.php'; ?>
-                <?php include 'children-tab.php'; ?>
-                <?php include 'parents-tab.php'; ?>
-            </div>
+            <canvas id="myChart" width="400" height="200"></canvas>
+            <script src="../../scripts/chart.js" type="text/javascript"></script>
         </div>
     </div>
 
