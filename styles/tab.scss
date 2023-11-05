@@ -1,4 +1,3 @@
-/* Стили для вкладок */
 .group-tabs {
   width: 100%;
 }
@@ -41,23 +40,18 @@
   color: #fff;
 }
 
-
-/* Скрыть все содержимое групп */
 .group-content {
   display: none;
 }
 
-/* Показывать только активное содержимое */
 .group-content.active {
   display: block;
 }
 
-/* Скрыть все таб-панели по умолчанию */
 .tab-panel {
   display: none;
 }
 
-/* Отобразить только активную таб-панель */
 .tab-panel.active {
   display: block;
 }

@@ -36,7 +36,7 @@
 }
 
 .button-row {
-  display: flex; /* Устанавливаем контейнер flex-контейнером */
-  gap: 10px; /* Расстояние между кнопками, по желанию */
+  display: flex;
+  gap: 10px;
   flex-wrap: wrap;
 }
