@@ -23,9 +23,10 @@ include 'parent-service.php';
 <div class="container">
     <div class="sidebar">
         <div class="links-container flex-column">
-            <?php if (isset($isAdmin) && $isAdmin)
+            <?php if (isset($isAdmin) && $isAdmin) {
                 echo "<a href='../administration/dashboard-admin.php'>Страница Заведующей</a>";
                 echo "<a href='../administration/stats-admin.php'>Статистика</a>";
+            }
             ?>
             <?php if (
                 isset($isAdmin) &&
