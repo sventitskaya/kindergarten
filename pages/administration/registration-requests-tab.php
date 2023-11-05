@@ -16,7 +16,7 @@
                         <td><?php echo $request['status']; ?></td>
                         <td>
                             <form method="post">
-                                <div class="button-row">
+                                <div class="button-row" style="flex-wrap: nowrap">
                                     <input type="submit" name="confirm_<?php echo $request['username']; ?>"
                                            value="Подтвердить">
                                     <input type="submit" name="cancel_<?php echo $request['username']; ?>"
