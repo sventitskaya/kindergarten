@@ -37,14 +37,16 @@ include 'admin-service.php';
 
     <div class="content">
         <div class="tab-container">
+            <?php if (isset($groups) && count($groups) > 0) : ?>
             <h3>Количество детей по группам</h3>
 
             <canvas id="myChart" width="400" height="200"></canvas>
             <script src="../../scripts/chart.js" type="text/javascript"></script>
+            <?php else : ?>
+                <p>Нет групп для отображения статистики</p>
+            <?php endif; ?>
         </div>
     </div>
-
-
 </div>
 <script src="../../scripts/tabs.js" type="text/javascript"></script>
 </body>
